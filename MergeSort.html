@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MergeSort Algorithm</title>
+		<meta charset = "UFT.8">
+	</head>
+	<script>
+		function mergeSort(vet){
+			if (vet.length <= 1) return vet
+
+			var arr1 = vet.slice(0, Math.ceil(vet.length/2))
+			  , arr2 = vet.slice(Math.ceil(vet.length/2))
+
+			arr1 = mergeSort(arr1)
+			arr2 = mergeSort(arr2)
+
+		return mergeSortMerge(arr1, arr2)
+		}
+		
+		function mergeSortMerge(arr1, arr2){
+			arr1.reverse(); arr2.reverse();
+
+			var vet = []
+				, l1 = arr1.length - 1
+				, l2 = arr2.length - 1
+
+			while(l1 >= 0 || l2 >= 0){
+				if (l1 >= 0 && l2 >= 0) {
+					if (arr1[l1] > arr2[l2]) {
+						vet.push(arr2[l2])
+						l2 -= 1
+					} else {
+						vet.push(arr1[l1])
+						l1 -= 1
+					}
+				} else if (l1 >= 0) {
+					vet.push(arr1[l1])
+					l1 -= 1
+				} else {
+					vet.push(arr2[l2])
+					l2 -= 1
+				}
+			}
+		  return vet
+		}
+		
+		document.write("MergeSort Algorithm");
+		document.write("<br/> <br/>")
+		var vet = [20, 18, 1, 4, 7, 10, 14, 6, 19, 2, 17, 12, 3, 8, 13, 5, 16, 9, 11, 15];
+		document.write(vet.join(" ")+"<br/>");
+		mergeSort(vet);	
+		var l2 = 0;
+		var l1 = vet.length - 1;
+		quickSort(vet, l2, l1);
+		document.write(vet.join(" "));
+	</script>
+	<body>
+	
+	</body>
+</html>

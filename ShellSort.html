@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ShellSort Algorithm</title>
+		<meta charset = "UFT.8">
+	</head>
+	<script>
+		function shellSort(vet) {
+			var increment = vet.length / 2;
+			while (increment > 0) {
+				for (i = increment; i < vet.length; i++) {
+					var j = i;
+					var temp = vet[i];
+    
+						while (j >= increment && vet[j-increment] > temp) {
+							vet[j] = vet[j-increment];
+							j = j - increment;
+						}
+					vet[j] = temp;
+					}
+					if (increment == 2) {
+						increment = 1;
+					} else {
+						increment = parseInt(increment*5 / 11);
+					}
+			}
+			return vet;
+		}
+		
+		document.write("ShellSort Algorithm");
+		document.write("<br/> <br/>")
+		var vet = [20, 18, 1, 4, 7, 10, 14, 6, 19, 2, 17, 12, 3, 8, 13, 5, 16, 9, 11, 15];
+		document.write(vet.join(" ")+"<br/>");
+		shellSort(vet);	
+		document.write(vet.join(" "));
+	
+	</script>
+	<body>
+	
+	</body>
+</html>

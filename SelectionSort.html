@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SelectionSort Algorithm</title>
+		<meta charset = "UFT.8">
+	</head>
+	<script>
+		function selectionSort(vet){
+			var minIdx, temp, 
+				len = vet.length;
+			for(var i = 0; i < len; i++){
+				minIdx = i;
+				for(var  j = i+1; j<len; j++){
+					if(vet[j]<vet[minIdx]){
+					minIdx = j;
+					}
+				}
+				temp = vet[i];
+				vet[i] = vet[minIdx];
+				vet[minIdx] = temp;
+			}
+			return vet;
+		}
+		
+		document.write("SelectionSort Algorithm");
+		document.write("<br/> <br/>")
+		var vet = [20, 18, 1, 4, 7, 10, 14, 6, 19, 2, 17, 12, 3, 8, 13, 5, 16, 9, 11, 15];
+		document.write(vet.join(" ")+"<br/>");
+		selectionSort(vet);	
+		document.write(vet.join(" "));
+	</script>
+	<body>
+	</body>
+</hmtl>

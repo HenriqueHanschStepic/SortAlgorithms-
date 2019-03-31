@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>InsertionSort Algorithm</title>
+		<meta charset = "UFT.8">
+	</head>
+	<script>
+		function insertionSort (vet) {
+			for (var i = 0; i < vet.length; i++) {
+			let value = vet[i]
+				for (var j = i - 1; j > -1 && vet[j] > value; j--) {
+					vet[j + 1] = vet[j]
+				}
+				vet[j + 1] = value
+			}
+			return vet
+		}
+		
+		document.write("InsertionSort Algorithm");
+		document.write("<br/> <br/>")
+		var vet = [20, 18, 1, 4, 7, 10, 14, 6, 19, 2, 17, 12, 3, 8, 13, 5, 16, 9, 11, 15];
+		document.write(vet.join(" ")+"<br/>");
+		insertionSort(vet);	
+		document.write(vet.join(" "));
+	</script>
+	<body>
+	
+	</body>
+</html>
